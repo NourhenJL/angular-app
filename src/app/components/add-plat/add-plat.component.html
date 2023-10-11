@@ -1,0 +1,100 @@
+<!--::regervation_part start::-->
+<section class="regervation_part section_padding" style="margin-top : 100px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+
+                    <h2>{{title}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="regervation_part_iner">
+                    <form [formGroup]=" addPlatForm">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputprice4" placeholder="Plat Name *"
+                                    formControlName="name" value="{{findedPlat.name}}" [(ngModel)]="findedPlat.name">
+                            </div>
+
+                            <div
+                                *ngIf="addPlatForm.controls['name'].invalid && (addPlatForm.controls['name'].touched || addPlatForm.controls['name'].dirty)">
+
+                                <div *ngIf="addPlatForm.controls['name'].errors.required" class="text-danger">
+                                    Plat Name is required
+                                </div>
+
+                                <div *ngIf="addPlatForm.controls['name'].errors.minlength" style="color: red;">
+                                    Plat name must have at least 3 characters
+                                </div>
+
+
+
+                            </div>
+
+
+
+                            <div class="form-group col-md-6">
+                               <textarea class="form-control" id="inputprice4" placeholder="Description *"
+                                    formControlName="description" value="{{findedPlat.description}}" [(ngModel)]="findedPlat.description"> </textarea>
+                            </div>
+
+                            <div
+                                *ngIf="addPlatForm.controls['description'].invalid && (addPlatForm.controls['description'].touched || addPlatForm.controls['description'].dirty)">
+
+                                <div *ngIf="addPlatForm.controls['description'].errors.required" class="text-danger">
+                                    Last name is required
+                                </div>
+
+                                <div *ngIf="addPlatForm.controls['description'].errors.minlength" style="color: red;">
+                                    Last name must have at least 3 characters
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="form-group col-md-6">
+                                <input type="number" class="form-control" id="inputPassword4" placeholder="Price *"
+                                    formControlName="price" value="{{findedPlat.price}}" [(ngModel)]="findedPlat.price">
+                            </div>
+
+                            <div
+                                *ngIf="addPlatForm.controls['price'].invalid && (addPlatForm.controls['price'].touched || addPlatForm.controls['price'].dirty)">
+
+                                <div *ngIf="addPlatForm.controls['price'].errors.required" class="text-danger">
+                                    price is required
+                                </div>
+
+                                <div *ngIf="addPlatForm.controls['price'].errors.price" style="color: red;">
+                                    price invalide
+                                </div>
+
+
+                            </div>
+
+
+
+
+                        </div>
+
+
+                        <div class="regerv_btn">
+                            <button class="btn_4" (click)="addOrEdit(addPlatForm.value)">{{title}}</button>
+                        </div>
+
+                        <div *ngIf="test" style="color: red;">
+                            hello
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--::regervation_part end::-->
